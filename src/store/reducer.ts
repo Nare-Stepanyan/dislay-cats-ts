@@ -3,6 +3,7 @@ import * as actionTypes from "./actionTypes";
 const initialState: any = {
   categories: [],
   images: [],
+  category_ids: 1,
 };
 type InitStateType = typeof initialState;
 
@@ -20,6 +21,11 @@ const reducer = (
       return {
         ...state,
         images: action.payload,
+      };
+    case actionTypes.GET_CATEGORY_IDS:
+      return {
+        ...state,
+        category_ids: action.payload,
       };
   }
   return state;

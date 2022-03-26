@@ -4,26 +4,32 @@ import { useActions } from "../../hooks/useActions";
 import styles from "./categories.module.scss";
 
 const Categories = () => {
-  const { categories } = useTypedSelector((state) => state);
-  const { addCategory } = useActions();
-  const { getImages } = useActions();
+  const { categories, category_ids } = useTypedSelector((state) => state);
+  const { getImages, changeCategory, addCategory } = useActions();
   useEffect(() => {
     addCategory();
   }, []);
-  const handleClick = (el: ICategory) => {
+  useEffect(() => {
     const params = {
       limit: 10,
       page: 1,
-      category_ids: el.id,
+      category_ids,
     };
     getImages(params);
+  }, [category_ids]);
+
+  const handleClick = (el: ICategory) => {
+    changeCategory(el.id);
   };
   return (
     <div>
       {categories.map((el: ICategory) => {
         return (
           <div className={styles.categoryList} key={el.id}>
-            <span onClick={() => handleClick} className={styles.singleCategory}>
+            <span
+              onClick={() => handleClick(el)}
+              className={styles.singleCategory}
+            >
               {el.name}
             </span>
           </div>

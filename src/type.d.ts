@@ -33,13 +33,16 @@ type ImagesAction = {
 type InitState = {
   categories: ICategory[];
   images: IImages[];
+  category_ids: number;
 };
 
 type stateAction = {
   type: string;
-  payload: CategoryState | ImagesState;
+  payload: CategoryState | ImagesState | number;
 };
+
 type DispatchTypeCategory = (args: CategoryAction) => CategoryAction;
 type DispatchTypeImages = (args: ImagesAction) => ImagesAction;
+type DispatchTypeCategoryIds = (args: number) => number;
 
 type ReduxTypes = ImageAction | CategoryAction;

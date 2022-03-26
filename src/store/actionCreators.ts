@@ -37,3 +37,12 @@ export function getImages(params: IParams): ThunkType<ReduxTypes> {
       .catch((error) => {});
   };
 }
+
+export function changeCategory(id: number): ThunkType<ReduxTypes> {
+  return (dispatch) => {
+    dispatch({
+      type: actionTypes.GET_CATEGORY_IDS,
+      payload: id,
+    });
+  };
+}

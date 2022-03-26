@@ -7,7 +7,7 @@ import { useActions } from "../../hooks/useActions";
 const MainDisplay = () => {
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
-  const { images } = useTypedSelector((state) => state);
+  const { images, category_ids } = useTypedSelector((state) => state);
   const { getImages } = useActions();
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const MainDisplay = () => {
     const params = {
       limit,
       page,
-      //category_ids,
+      category_ids,
     };
     getImages(params);
   }, [page]);
