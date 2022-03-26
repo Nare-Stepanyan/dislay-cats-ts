@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.app {
+  min-height: 100vh;
+  .app-header {
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+  }
+  .container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 10px auto;
+    .side-bar {
+      width: 30%;
+      outline: 1px solid red;
+    }
+    .main-display {
+      width: 60%;
+      outline: 1px solid red;
+    }
+  }
+}
