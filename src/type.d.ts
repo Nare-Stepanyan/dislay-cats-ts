@@ -8,7 +8,7 @@ type CategoryState = {
 
 type CategoryAction = {
   type: string;
-  category: ICategory;
+  categories: Array<ICategory>;
 };
 
 interface IParams {
@@ -37,7 +37,9 @@ type InitState = {
 
 type stateAction = {
   type: string;
-  action: CategoryAction | ImagesAction;
+  payload: CategoryState | ImagesState;
 };
 type DispatchTypeCategory = (args: CategoryAction) => CategoryAction;
 type DispatchTypeImages = (args: ImagesAction) => ImagesAction;
+
+type ReduxTypes = ImageAction | CategoryAction;

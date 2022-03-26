@@ -1,20 +1,20 @@
 import * as actionTypes from "./actionTypes";
 
-const initialState: InitState = {
+const initialState: any = {
   categories: [],
   images: [],
 };
+type InitStateType = typeof initialState;
 
 const reducer = (
-  state: InitState = initialState,
+  state: InitStateType = initialState,
   action: stateAction
-): InitState => {
+): InitStateType => {
   switch (action.type) {
     case actionTypes.ADD_CATEGORY:
-      const categories: ICategory[] = [{ id: 1, name: "example" }];
       return {
         ...state,
-        categories,
+        categories: action.payload,
       };
     case actionTypes.GET_IMAGES:
       const images: IImages[] = [];

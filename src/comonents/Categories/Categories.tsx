@@ -1,19 +1,31 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect } from "react";
+import { useTypedSelector } from "../../hooks/useTypedSelector";
+import { useActions } from "../../hooks/useActions";
+import styles from "./categories.module.scss";
 
 const Categories = () => {
-  const [categories, setCategories] = useState([]);
+  const { categories } = useTypedSelector((state) => state);
+  const { addCategory } = useActions();
   useEffect(() => {
-    axios({
-      method: "get",
-      url: "https://api.thecatapi.com/v1/categories",
-    }).then((data) => {
-      console.log(data.data);
-      setCategories(data.data);
-    });
+    addCategory();
   }, []);
 
-  return <div>{categories.map((el: ICategory) => el.name)}</div>;
+  return (
+    <div>
+      {categories.map((el: ICategory) => {
+        return (
+          <div className={styles.categoryList} key={el.id}>
+            <span
+              onClick={() => console.log(el.id)}
+              className={styles.singleCategory}
+            >
+              {el.name}
+            </span>
+          </div>
+        );
+      })}
+    </div>
+  );
 };
 
 export default Categories;
