@@ -9,6 +9,10 @@
     margin: 10px auto;
     display: flex;
     justify-content: center;
+    h1 {
+      color: rgb(54, 43, 43);
+      margin: 20px;
+    }
   }
   .container {
     display: flex;
@@ -16,11 +20,10 @@
     width: 80%;
     margin: 10px auto;
     .side-bar {
-      width: 30%;
+      width: 25%;
     }
     .main-display {
-      width: 60%;
-      outline: 1px solid red;
+      width: 75%;
     }
   }
 }

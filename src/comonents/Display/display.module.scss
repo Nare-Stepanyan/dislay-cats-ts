@@ -1,0 +1,61 @@
+.imageContainer {
+  width: 250px;
+  height: 200px;
+  padding: 10px;
+  text-align: center;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+.imageList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.loadMore {
+  margin: 20px auto;
+  display: flex;
+  span {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 0.15rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    font-family: Arial;
+    text-decoration: none;
+    cursor: pointer;
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: hsl(180, 90%, 33%);
+      z-index: -2;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-color: teal;
+      transition: all 0.3s;
+      z-index: -1;
+    }
+    &:hover {
+      color: #fff;
+      &:before {
+        width: 100%;
+      }
+    }
+  }
+}

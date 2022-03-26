@@ -2,6 +2,7 @@ import * as actionTypes from "./actionTypes";
 import type { Action } from "redux";
 import type { ThunkAction } from "redux-thunk";
 import axios from "axios";
+import { objectToQueryString } from "./../utils";
 
 export type ThunkType<T extends Action> = ThunkAction<
   Promise<void> | void,
@@ -22,12 +23,17 @@ export function addCategory(): ThunkType<ReduxTypes> {
       .catch((error) => {});
   };
 }
-export function getImages(images: IImages[]) {
-  const action: ImagesAction = {
-    type: actionTypes.GET_IMAGES,
-    images,
-  };
-  return (dispatch: DispatchTypeImages) => {
-    dispatch(action);
+export function getImages(params: IParams): ThunkType<ReduxTypes> {
+  return (dispatch) => {
+    const query = objectToQueryString(params);
+    return axios
+      .get(`https://api.thecatapi.com/v1/images/search?${query}`)
+      .then((response) => {
+        dispatch({
+          type: actionTypes.GET_IMAGES,
+          payload: response.data,
+        });
+      })
+      .catch((error) => {});
   };
 }

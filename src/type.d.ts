@@ -14,12 +14,12 @@ type CategoryAction = {
 interface IParams {
   limit: number;
   page: number;
-  category_ids: null;
+  category_ids?: number;
 }
 
 interface IImages {
-  images: [];
-  params?: IParams;
+  id: string;
+  url: string;
 }
 
 type ImagesState = {

@@ -17,10 +17,9 @@ const reducer = (
         categories: action.payload,
       };
     case actionTypes.GET_IMAGES:
-      const images: IImages[] = [];
       return {
         ...state,
-        images,
+        images: action.payload,
       };
   }
   return state;

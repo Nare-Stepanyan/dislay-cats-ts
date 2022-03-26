@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Display cats</h1>
+        <h1>Display Cats by Categories</h1>
       </header>
       <div className="container">
         <div className="side-bar">
